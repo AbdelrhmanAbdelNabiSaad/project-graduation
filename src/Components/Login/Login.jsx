@@ -58,7 +58,7 @@ function Login() {
   }
 
   return (
-    <div className="min-h-screen flex" style={{ background: "var(--bg-secondary)" }}>
+    <div className="min-h-screen flex flex-col md:flex-row" style={{ background: "var(--bg-secondary)" }}>
       {/* Theme toggle top right */}
       <button onClick={toggleTheme} className="theme-toggle fixed top-4 right-4 z-50">
         {theme === "dark"

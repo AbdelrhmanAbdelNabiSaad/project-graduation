@@ -4,6 +4,7 @@ import axios from "axios";
 import JobSkillsManager from "../JobSkillsManager/JobSkillsManager";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { Link } from "react-router-dom";
 
 const BASE_URL = "https://jooobs.runasp.net";
 
@@ -232,7 +233,6 @@ function MyJobs() {
       setPublishingId(null);
     }
   }
-
   async function handleDelete(jobId) {
     if (!window.confirm("Are you sure you want to delete this job?")) return;
     try {
@@ -270,13 +270,13 @@ function MyJobs() {
             anytime.
           </p>
         </div>
-        <a
-          href="/createjob"
+        <Link
+          to="/createjob"
           className="mt-10 md:mt-0 py-2 px-4 text-white rounded-lg font-bold text-sm w-full md:w-fit text-center duration-300"
           style={{ background: "var(--gradient-brand)" }}
         >
           + Post New Job
-        </a>
+        </Link>
       </div>
 
       {loading && (

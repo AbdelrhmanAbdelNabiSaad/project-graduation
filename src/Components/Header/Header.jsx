@@ -42,13 +42,13 @@ function Header() {
             )}
           </button>
 
-          <Link to="/login" className="btn-outline hidden sm:inline-flex">Login</Link>
-          <Link to="/register" className="btn-primary hidden sm:inline-flex">Sign Up</Link>
+          <Link to="/login" className="btn-outline hide">Login</Link>
+          <Link to="/register" className="btn-primary hide">Sign Up</Link>
 
           {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden theme-toggle"
+            className="block md:hidden theme-toggle"
             aria-label="Toggle menu"
           >
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">

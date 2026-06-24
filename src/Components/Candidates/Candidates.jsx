@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Sidebar from "../Sidebar/Sidebar";
 import usericon from "../../assets/user-icon.svg";
 import logoCompany from "../../assets/company-1.svg";
 
@@ -103,7 +102,7 @@ function RecruiterCandidates({ token }) {
       </div>
 
       {/* Stats */}
-      <div className=" rounded-2xl border shadow-xs p-4 mb-6 flex items-center gap-4">
+      <div className=" rounded-2xl border shadow-xs p-4 mb-6 flex items-center gap-4 flex-wrap" style={{borderColor: 'var(--border-default)'}}>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-green-500"></div>
           <span className="text-sm font-semibold text-gray-700">
@@ -155,35 +154,31 @@ function RecruiterCandidates({ token }) {
         </div>
       ) : (
         <>
-          {/* Table - بدون عمود CV */}
-          <div className="rounded-2xl border shadow-xs overflow-hidden" style={{borderColor: 'var(--border-default)'}}>
+          {/* Table view — tablet & desktop */}
+          <div className="hidden md:block rounded-2xl border shadow-xs overflow-hidden" style={{borderColor: 'var(--border-default)'}}>
             <table className="w-full text-sm text-left">
               <thead
-                className="text-white"
+                className=""
                 style={{ background: "var(--gradient-brand)" }}
               >
                 <tr>
                   <th
-                    className="px-5 py-3 font-bold text-xs uppercase tracking-wide w-2/5"
-                    
+                    className="px-5 py-3 font-bold text-xs uppercase tracking-wide w-2/5 text-white"
                   >
                     Candidate
                   </th>
                   <th
-                    className="px-5 py-3 font-bold text-xs uppercase tracking-wide w-1/4"
-                    
+                    className="px-5 py-3 font-bold text-xs uppercase tracking-wide w-1/4 text-white"
                   >
                     Position
                   </th>
                   <th
-                    className="px-5 py-3 font-bold text-xs uppercase tracking-wide w-1/6"
-                    
+                    className="px-5 py-3 font-bold text-xs uppercase tracking-wide w-1/6 text-white"
                   >
                     Match Score
                   </th>
                   <th
-                    className="px-5 py-3 font-bold text-xs uppercase tracking-wide w-1/6"
-                    
+                    className="px-5 py-3 font-bold text-xs uppercase tracking-wide w-1/6 text-white"
                   >
                     Accepted At
                   </th>
@@ -204,16 +199,16 @@ function RecruiterCandidates({ token }) {
                         >
                           <img src={usericon} alt="user" className="w-5 h-5" />
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <div
-                            className="font-semibold text-sm cursor-pointer  transition-colors"
+                            className="font-semibold text-sm cursor-pointer truncate transition-colors"
                             style={{ color: "var(--text-primary)" }}
                             onClick={() => openDetails(c)}
                           >
                             {c.applicantName || "View Details →"}
                           </div>
                           {c.applicantEmail && (
-                            <div className="text-xs text-gray-400 mt-0.5">
+                            <div className="text-xs text-gray-400 mt-0.5 truncate">
                               {c.applicantEmail}
                             </div>
                           )}
@@ -243,6 +238,58 @@ function RecruiterCandidates({ token }) {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Card view — mobile */}
+          <div className="md:hidden rounded-2xl border shadow-xs overflow-hidden" style={{borderColor: 'var(--border-default)'}}>
+            {paginated.map((c) => (
+              <div
+                key={c.id}
+                className="px-4 py-4 border-t first:border-t-0 flex flex-col gap-3"
+                style={{ borderColor: "var(--border-default)" }}
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ background: "var(--indigo-900)" }}
+                  >
+                    <img src={usericon} alt="user" className="w-5 h-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <div
+                      className="font-semibold text-sm cursor-pointer truncate transition-colors"
+                      style={{ color: "var(--text-primary)" }}
+                      onClick={() => openDetails(c)}
+                    >
+                      {c.applicantName || "View Details →"}
+                    </div>
+                    {c.applicantEmail && (
+                      <div className="text-xs text-gray-400 truncate">
+                        {c.applicantEmail}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div
+                  className="text-sm font-medium"
+                  style={{ color: "var(--text-brand)" }}
+                >
+                  {c.jobTitle}
+                </div>
+
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <span className="bg-green-50 text-blue-700 text-xs font-bold py-1 px-3 rounded-lg">
+                    {c.matchScore !== null ? `${c.matchScore}%` : "N/A"}
+                  </span>
+                  <span className="text-gray-400 text-xs">
+                    {c.createdAt
+                      ? new Date(c.createdAt).toLocaleDateString()
+                      : "N/A"}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Pagination */}
@@ -522,15 +569,12 @@ function Candidates() {
   const isApplicant = userType === "applicant";
 
   return (
-    <div className="row min-h-screen mt-15 md:mt-0">
-      <Sidebar />
-      <div className="ml-0 w-full py-6 px-4">
-        {isApplicant ? (
-          <AcceptedOffers token={token} />
-        ) : (
-          <RecruiterCandidates token={token} />
-        )}
-      </div>
+    <div className="w-full mt-15 md:mt-0">
+      {isApplicant ? (
+        <AcceptedOffers token={token} />
+      ) : (
+        <RecruiterCandidates token={token} />
+      )}
     </div>
   );
 }

@@ -27,12 +27,12 @@ function Features() {
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, i) => (
-            <div key={i} className="feature-card" style={{ animationDelay: `${i * 0.1}s` }}>
+            <div key={i} className="feature-card text-center md:text-start" style={{ animationDelay: `${i * 0.1}s` }}>
               <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                className="w-14 h-14 mx-auto md:mx-0  rounded-2xl flex items-center justify-center mb-5"
                 style={{ background: `${f.color}18` }}
               >
-                <img src={f.icon} alt={f.title} className="w-8 h-8 object-contain" />
+                <img src={f.icon} alt={f.title} className="w-8 h-8  object-contain" />
               </div>
               <h5 className="text-lg font-bold mb-3" style={{ color: "var(--text-primary)" }}>{f.title}</h5>
               <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>{f.desc}</p>

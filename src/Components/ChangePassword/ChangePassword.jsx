@@ -82,14 +82,14 @@ function ChangePassword({ onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-6">
+      <div className="sr-card rounded-2xl shadow-xl w-full max-w-md p-6">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
           <div>
-            <h2 className="text-xl font-bold text-gray-900">
+            <h2 className="text-xl font-bold" style={{color: 'var(--text-primary)'}}>
               Change Password
             </h2>
-            <p className="text-sm text-gray-400 mt-0.5">
+            <p className="text-sm mt-0.5" style={{color: 'var(--text-secondary)'}}>
               Make sure your new password is strong and secure.
             </p>
           </div>
@@ -183,14 +183,14 @@ function ChangePassword({ onClose }) {
             <button
               type="button"
               onClick={onClose}
-              className="py-2 px-5 bg-gray-100 text-gray-700 text-sm font-bold rounded-lg hover:bg-gray-200 duration-300 cursor-pointer"
+              className="py-2 px-5 btn-ghost text-gray-700 text-sm font-bold rounded-lg hover:bg-gray-200 duration-300 cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="py-2 px-6 bg-green-600 text-white text-sm font-bold rounded-lg hover:bg-green-700 duration-300 disabled:opacity-60 cursor-pointer"
+              className="py-2 px-6 btn-accent text-white text-sm font-bold rounded-lg hover:bg-green-700 duration-300 disabled:opacity-60 cursor-pointer"
             >
               {loading ? "Saving..." : "Save Password"}
             </button>

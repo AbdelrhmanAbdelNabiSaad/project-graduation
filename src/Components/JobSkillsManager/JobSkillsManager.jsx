@@ -122,13 +122,13 @@ function JobSkillsManager({ jobId, onSkillsAdded, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6">
+      <div className="sr-card rounded-2xl shadow-xl max-w-md w-full p-6">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold text-gray-900">Manage Job Skills</h2>
+          <h2 className="text-xl font-bold" style={{color: 'var(--text-primary)'}}>Manage Job Skills</h2>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 text-2xl leading-none cursor-pointer"
+            className="btn-outline text-2xl leading-none cursor-pointer"
           >
             ×
           </button>
@@ -170,11 +170,11 @@ function JobSkillsManager({ jobId, onSkillsAdded, onClose }) {
                   setSelectedSkillName(skill?.name || "");
                   setError("");
                 }}
-                className="flex-1 border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-green-500 outline-none bg-white"
+                className="flex-1 border rounded-xl px-3 py-2.5 text-sm focus:border-green-500 outline-none bg-none"
               >
                 <option value="">-- Choose a skill --</option>
                 {availableToAdd.map((skill) => (
-                  <option key={skill.id} value={skill.id}>
+                  <option key={skill.id} value={skill.id} className="" style={{color: 'var(--text-brand)'}}>
                     {skill.name}
                   </option>
                 ))}
@@ -182,7 +182,7 @@ function JobSkillsManager({ jobId, onSkillsAdded, onClose }) {
               <button
                 onClick={handleAddSkill}
                 disabled={loading || !selectedSkillId}
-                className="py-2 px-4 bg-green-600 text-white text-sm font-bold rounded-xl hover:bg-green-700 duration-300 disabled:opacity-60 cursor-pointer"
+                className="py-2 px-4 btn-primary text-white text-sm font-bold rounded-xl hover:bg-green-700 duration-300 disabled:opacity-60 cursor-pointer"
               >
                 {loading ? "Adding..." : "Add"}
               </button>
@@ -222,14 +222,14 @@ function JobSkillsManager({ jobId, onSkillsAdded, onClose }) {
         <div className="flex gap-2 justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-gray-100 text-gray-700 text-sm font-bold rounded-lg hover:bg-gray-200 duration-300 cursor-pointer"
+            className="px-4 py-2 btn-ghost text-gray-700 text-sm font-bold rounded-lg hover:bg-gray-200 duration-300 cursor-pointer"
           >
             Close
           </button>
           {jobSkills.length > 0 && (
             <button
               onClick={onClose}
-              className="px-4 py-2 bg-green-600 text-white text-sm font-bold rounded-lg hover:bg-green-700 duration-300 cursor-pointer"
+              className="px-4 py-2 btn-accent text-white text-sm font-bold rounded-lg hover:bg-green-700 duration-300 cursor-pointer"
             >
               Done ✓
             </button>

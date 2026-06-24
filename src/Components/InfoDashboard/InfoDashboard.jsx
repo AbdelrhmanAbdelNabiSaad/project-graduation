@@ -486,7 +486,7 @@ function InfoDashboard() {
                     <button
                       key={pg}
                       onClick={() => setUserPage(pg)}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-bold border cursor-pointer ${userPage === pg ? "bg-green-500 text-white border-green-500" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-bold border cursor-pointer ${userPage === pg ? "btn-primary text-white border-green-500" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}
                     >
                       {pg}
                     </button>
@@ -882,7 +882,7 @@ function InfoDashboard() {
                     <button
                       key={pg}
                       onClick={() => setRecruiterPage(pg)}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-bold border cursor-pointer ${recruiterPage === pg ? "bg-blue-900 text-white border-blue-900" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-bold border cursor-pointer ${recruiterPage === pg ? "btn-primary text-white border-blue-900" : "border-gray-200 text-gray-600 hover:bg-gray-50"}`}
                     >
                       {pg}
                     </button>

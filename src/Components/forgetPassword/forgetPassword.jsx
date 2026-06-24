@@ -85,13 +85,14 @@ function ForgetPassword() {
   return (
     <div className="register mx-auto h-screen flex">
       {/* Left image */}
-      <div className="content w-1/2 text-center flex flex-col justify-center items-center relative">
+      <div
+        className="content  w-1/2 text-center flex flex-col justify-center items-center relative"
+        style={{ background: "var(--gradient-brand)" }}
+      >
         <div className="image">
           <img src={heroSign} alt="" />
         </div>
-        <h1 className="text-4xl font-bold text-slate-950">
-          Intelligence meets Talent
-        </h1>
+        <h1 className="text-4xl font-bold">Intelligence meets Talent</h1>
         <p className="text-gray-100 my-3">
           Our AI-driven platform connects the right candidates with the right
           opportunities in milliseconds. Secure, unbiased, and efficient.
@@ -103,19 +104,25 @@ function ForgetPassword() {
         <h2 className="text-3xl text-shadow-slate-950 font-bold">
           Smart Hiring Starts Here
         </h2>
-        <p className="mt-2 text-gray-500">Welcome To The Future Of Recruitment</p>
+        <p className="mt-2 text-gray-500">
+          Welcome To The Future Of Recruitment
+        </p>
 
         <ul className="mt-4 flex justify-center gap-5 relative">
           <li>
             <Link
               to="/login"
-              className="py-3 px-5 block border-b-2 border-green-500 text-green-500 font-bold"
+              className="py-3 px-5 block border-b-2  font-bold"
+              style={{
+                color: "var(--text-brand)",
+                borderBottomColor: "var(--text-brand)",
+              }}
             >
               Login
             </Link>
           </li>
           <li>
-            <Link to="/register" className="py-3 px-5 block text-slate-900">
+            <Link to="/register" className="py-3 px-5 block">
               Register
             </Link>
           </li>
@@ -137,7 +144,10 @@ function ForgetPassword() {
             className="flex flex-col items-center w-full"
             onSubmit={step1Formik.handleSubmit}
           >
-            <p className="mt-6 mb-2 text-gray-500 text-sm" style={{ width: "80%" }}>
+            <p
+              className="mt-6 mb-2 text-gray-500 text-sm"
+              style={{ width: "80%" }}
+            >
               Enter your email address and we will send you a reset token.
             </p>
 
@@ -159,14 +169,16 @@ function ForgetPassword() {
                 placeholder="Enter Your Email Address"
               />
               {step1Formik.touched.email && step1Formik.errors.email && (
-                <p className="text-red-500 text-xs mt-1">{step1Formik.errors.email}</p>
+                <p className="text-red-500 text-xs mt-1">
+                  {step1Formik.errors.email}
+                </p>
               )}
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="py-3 px-5 mt-5 bg-green-600 rounded-xl text-white font-bold text-lg hover:cursor-pointer hover:bg-green-700 duration-300 disabled:opacity-60"
+              className="py-3 px-5 mt-5 btn-primary justify-center rounded-xl text-white font-bold text-lg hover:cursor-pointer hover:bg-green-700 duration-300 disabled:opacity-60"
               style={{ width: "50%" }}
             >
               {loading ? "Sending..." : "Send Reset Token"}
@@ -174,7 +186,11 @@ function ForgetPassword() {
 
             <p className="mt-5 text-gray-500">
               Back to{" "}
-              <Link to="/login" className="text-green-600 font-bold">
+              <Link
+                to="/login"
+                className="font-bold"
+                style={{ color: "var(--text-brand)" }}
+              >
                 Login
               </Link>
             </p>
@@ -191,7 +207,8 @@ function ForgetPassword() {
               className="p-4 mb-2 mt-4 text-green-800 bg-green-50 border border-green-200 rounded-lg text-sm"
               style={{ width: "80%" }}
             >
-              A reset token was sent to <strong>{emailSent}</strong>. Check your inbox.
+              A reset token was sent to <strong>{emailSent}</strong>. Check your
+              inbox.
             </div>
 
             <div className="mt-3" style={{ width: "80%" }}>
@@ -212,7 +229,9 @@ function ForgetPassword() {
                 placeholder="Paste your reset token here"
               />
               {step2Formik.touched.token && step2Formik.errors.token && (
-                <p className="text-red-500 text-xs mt-1">{step2Formik.errors.token}</p>
+                <p className="text-red-500 text-xs mt-1">
+                  {step2Formik.errors.token}
+                </p>
               )}
             </div>
 
@@ -233,9 +252,12 @@ function ForgetPassword() {
                 className="border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-green-500 focus:border-3 block w-full px-3 py-2.5 shadow-xs placeholder:text-gray-500 duration-100"
                 placeholder="Enter new password"
               />
-              {step2Formik.touched.newPassword && step2Formik.errors.newPassword && (
-                <p className="text-red-500 text-xs mt-1">{step2Formik.errors.newPassword}</p>
-              )}
+              {step2Formik.touched.newPassword &&
+                step2Formik.errors.newPassword && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {step2Formik.errors.newPassword}
+                  </p>
+                )}
             </div>
 
             <div className="mt-3" style={{ width: "80%" }}>
@@ -255,9 +277,12 @@ function ForgetPassword() {
                 className="border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-green-500 focus:border-3 block w-full px-3 py-2.5 shadow-xs placeholder:text-gray-500 duration-100"
                 placeholder="Confirm new password"
               />
-              {step2Formik.touched.confirmPassword && step2Formik.errors.confirmPassword && (
-                <p className="text-red-500 text-xs mt-1">{step2Formik.errors.confirmPassword}</p>
-              )}
+              {step2Formik.touched.confirmPassword &&
+                step2Formik.errors.confirmPassword && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {step2Formik.errors.confirmPassword}
+                  </p>
+                )}
             </div>
 
             <button
@@ -271,7 +296,10 @@ function ForgetPassword() {
 
             <button
               type="button"
-              onClick={() => { setStep(1); setApiError(""); }}
+              onClick={() => {
+                setStep(1);
+                setApiError("");
+              }}
               className="mt-3 text-sm text-gray-500 hover:text-green-600 duration-200 cursor-pointer"
             >
               Resend token
@@ -290,7 +318,8 @@ function ForgetPassword() {
               Password Reset Successfully!
             </h3>
             <p className="text-gray-500 mb-6">
-              Your password has been updated. You can now log in with your new password.
+              Your password has been updated. You can now log in with your new
+              password.
             </p>
             <button
               onClick={() => navigate("/login")}

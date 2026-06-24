@@ -1,0 +1,5 @@
+@media(max-width: 576px) {
+    .ixed .bg-white {
+        margin-top: 0 !important;
+    }
+}

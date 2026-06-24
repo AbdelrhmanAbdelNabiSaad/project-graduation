@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4f46e5"/><stop offset="50%" stop-color="#6366f1"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
+<mask id="mask0_1_164" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+<path d="M24 0H0V24H24V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_1_164)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M23.6213 12L12 23.6213L0.378662 12L12 0.378693L23.6213 12ZM6.12128 10.5H17.8787L12 4.62134L6.12128 10.5Z" fill="url(#brandGradient)"/>
+</g>
+</svg>

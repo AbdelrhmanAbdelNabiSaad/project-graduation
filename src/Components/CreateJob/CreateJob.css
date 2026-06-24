@@ -1,0 +1,11 @@
+.CreateJob {}
+input,textarea {
+    border-color: var(--text-secondary) !important;
+    color: var(--text-primary);
+}
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--indigo-400) !important;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15) !important;
+}

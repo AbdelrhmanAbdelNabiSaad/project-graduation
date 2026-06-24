@@ -1,0 +1,3 @@
+<svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4f46e5"/><stop offset="50%" stop-color="#6366f1"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
+<path d="M5.20444 22.75V7.19444C5.20444 6.65972 5.39483 6.20197 5.77562 5.82118C6.1564 5.44039 6.61416 5.25 7.14888 5.25H16.8711C17.4058 5.25 17.8636 5.44039 18.2444 5.82118C18.6252 6.20197 18.8155 6.65972 18.8155 7.19444V22.75L12.01 19.8333L5.20444 22.75ZM7.14888 19.7847L12.01 17.6944L16.8711 19.7847V7.19444H7.14888V19.7847ZM7.14888 7.19444H16.8711H12.01H7.14888Z" fill="url(#brandGradient)"/>
+</svg>
